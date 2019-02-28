@@ -14,7 +14,7 @@ defmodule EntranceWeb.Router do
   end
 
   scope "/", EntranceWeb do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", PageController, :index
   end

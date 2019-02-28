@@ -20,26 +20,28 @@ defmodule EntranceWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: EntranceWeb
+
       import Plug.Conn
-      import EntranceWeb.Router.Helpers
       import EntranceWeb.Gettext
+      alias EntranceWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/entrance_web/templates",
-                        namespace: EntranceWeb
+      use Phoenix.View,
+        root: "lib/entrance_web/templates",
+        namespace: EntranceWeb
 
       # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
+      import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import EntranceWeb.Router.Helpers
       import EntranceWeb.ErrorHelpers
       import EntranceWeb.Gettext
+      alias EntranceWeb.Router.Helpers, as: Routes
     end
   end
 
